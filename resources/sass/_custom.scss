@@ -1,0 +1,21 @@
+.header {
+    font-weight: bold;
+}
+.line {
+    border-bottom: 1px solid #333;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+}
+.guests {
+    display: flex;
+    background-color: #eee;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    form {
+        margin: 10px;
+        border: 1px solid #aaa;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
