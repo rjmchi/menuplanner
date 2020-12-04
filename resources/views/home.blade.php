@@ -20,6 +20,7 @@
                     <div class="card-text">
                         <p>{{$event->location}}</p>
                         <p>{{$event->date_time}}</p>
+                        <p>{{$event->notes}}</p>
 
                         <form action="{{route('events.destroy', $event->id)}}" method="POST"> 
                             @csrf

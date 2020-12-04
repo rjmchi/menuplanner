@@ -18,7 +18,8 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->dateTime('date_time');            
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');            
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

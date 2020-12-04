@@ -48,6 +48,7 @@ class EventController extends Controller
         $e->name = $request->input('name');
         $e->location = $request->input('location');
         $e->date_time = new Carbon($dt);
+        $e->notes = $request->input('notes');
         $e->user_id = Auth::user()->id;
         $e->save();
         return redirect(route('events.show', $e->id));    

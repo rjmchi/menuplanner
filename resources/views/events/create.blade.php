@@ -26,9 +26,13 @@
                 <input name="ampm" type="radio" value="am">
                 <label for=""> PM</label>
                 <input checked="checked" name="ampm" type="radio" value="pm">	
-            </div>    
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="notes" placeholder="Notes:"></textarea>
+            </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create Event</button>
+            </div>
 </form>
 </div>
 @endsection

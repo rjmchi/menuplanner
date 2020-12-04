@@ -6,6 +6,7 @@
         <h2>{{$event->name}}</h2>
         <h3>{{$event->location}}</h3>
         <p>{{ Carbon\Carbon::parse($event->date_time)->toDayDateTimeString() }}</p>
+        <p>{{$event->notes}}</p>
     </div>
 </div> 
   
