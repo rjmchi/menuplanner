@@ -51,6 +51,17 @@ class EventController extends Controller
         $e->notes = $request->input('notes');
         $e->user_id = Auth::user()->id;
         $e->save();
+
+        $g = Guest::where('email_address', '=', $e->user->email)->first();
+
+        if (!$g) {
+            $g = new Guest;
+            $g->name = $e->user->name;
+            $g->email_address = $e->user->email;
+            $g->save();
+        }
+        $g->events()->attach($e->id);
+
         return redirect(route('events.show', $e->id));    
     }
 
