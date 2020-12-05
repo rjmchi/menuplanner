@@ -10,19 +10,19 @@
     </div>
 </div> 
   
-<div class="container">
+<div class="container-sm">
     <div class="row header">
-        <div class="col-md-4">Name</div>
-        <div class="col-md-3">Item</div>
-        <div class="col-md-3">Dish</div>
-        <div class="col-md-2">&nbsp;</div>
+        <div class="col-sm-4">Name</div>
+        <div class="col-sm-3">Item</div>
+        <div class="col-sm-3">Dish</div>
+        <div class="col-sm-2">&nbsp;</div>
     </div>
     @foreach ($event->dishes as $dish)
         <div class="row line">
-            <div class="col-md-4"> {{$dish->guest->name}} </div>
-            <div class="col-md-3"> {{$dish->item->name}}</div>
-            <div class="col-md-3">{{$dish->name}} </div>
-            <div class="col-md-2">
+            <div class="col-sm-4"> {{$dish->guest->name}} </div>
+            <div class="col-sm-3"> {{$dish->item->name}}</div>
+            <div class="col-sm-3">{{$dish->name}} </div>
+            <div class="col-sm-2">
                 <form action="{{route('dishes.destroy', [$dish->id])}}" method="post">
                 @csrf
                 @method('delete')
