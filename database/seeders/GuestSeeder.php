@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class GuestSeeder extends Seeder
 {
@@ -19,12 +20,12 @@ class GuestSeeder extends Seeder
         $guest->save();
 
         $e = \App\Models\Event::find(1);
-        $e->guests()->attach($guest->id);
+        $e->guests()->attach($guest->id,['uuid'=>Str::uuid()]);
 
         $guest = new \App\Models\Guest;
         $guest->name = 'Howard';
         $guest->email_address = 'howard@chicagopotters.com';
         $guest->save(); 
-        $e->guests()->attach($guest->id);
+        $e->guests()->attach($guest->id,['uuid'=>Str::uuid()]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use App\Mail\Invite;
 
 class GuestController extends Controller
@@ -43,16 +44,13 @@ class GuestController extends Controller
         ]);
 
         $g = Guest::where('email_address', '=', $request->input('email_address'))->first();
-        if ($g) {
-            $g->events()->attach($request->event_id);
-        }
-        else {
+        if (!$g) {
             $g = new Guest;
             $g->name = $request->input('name');
             $g->email_address = $request->input('email_address');
             $g->save();
-            $g->events()->attach($request->event_id);
         }
+        $g->events()->attach($request->event_id,['uuid'=>Str::uuid()]);
 
         if ($request->send_invite) {
             \Mail::to($g->email_address)->send(new Invite);            

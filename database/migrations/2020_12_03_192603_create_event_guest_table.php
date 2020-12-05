@@ -19,6 +19,7 @@ class CreateEventGuestTable extends Migration
             $table->foreignId('guest_id')->constrained()->onDelete('cascade');
             $table->boolean('invite_sent')->default(false);
             $table->boolean('attending')->default(false);
+            $table->string('uuid');
             $table->primary(['event_id', 'guest_id']);
         });
     }

@@ -8,7 +8,7 @@ use App\Models\Item;
 use App\Models\Guest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -60,7 +60,8 @@ class EventController extends Controller
             $g->email_address = $e->user->email;
             $g->save();
         }
-        $g->events()->attach($e->id);
+        
+        $g->events()->attach($e->id,['uuid'=>Str::uuid()]);
 
         return redirect(route('events.show', $e->id));    
     }

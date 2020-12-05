@@ -10,6 +10,8 @@ class Guest extends Model
     use HasFactory;
 
     public function events() {
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class)
+            ->withPivot('uuid', 'attending', 'invite_sent');
+;
     }    
 }
