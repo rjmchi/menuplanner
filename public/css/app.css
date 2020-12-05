@@ -10918,6 +10918,8 @@ a.text-dark:focus {
   background-color: #eee;
   justify-content: space-around;
   flex-wrap: wrap;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .guests form {
