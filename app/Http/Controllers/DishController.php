@@ -42,6 +42,9 @@ class DishController extends Controller
         $d->event_id = $request->input('event_id');
         $d->save();
 
+        if (isset($request->uuid)){
+            return redirect(route('guest.invite', $request->uuid));
+        }
         return redirect(route('events.show', $request->event_id));
     }
 

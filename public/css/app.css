@@ -10914,12 +10914,10 @@ a.text-dark:focus {
 }
 
 .guests {
-  display: flex;
   background-color: #eee;
-  justify-content: space-around;
-  flex-wrap: wrap;
   border-radius: 5px;
   margin-bottom: 5px;
+  padding: 2px;
 }
 
 .guests form {
@@ -10927,5 +10925,13 @@ a.text-dark:focus {
   border: 1px solid #aaa;
   padding: 10px;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guests form .name {
+  font-weight: bold;
+  padding: 10px;
 }
 

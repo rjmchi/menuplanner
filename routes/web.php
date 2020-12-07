@@ -28,5 +28,5 @@ Route::resource('events', App\Http\Controllers\EventController::class);
 
 Route::get('/sendinvite/{event}/{guest}', [App\Http\Controllers\HomeController::class, 'sendInvite'])->name('sendinvite');
 
-Route::get('/guest/{id}', [App\Http\Controllers\InviteController::class, 'guest']);
+Route::get('/guest/{id}', [App\Http\Controllers\InviteController::class, 'guest'])->name('guest.invite');
 

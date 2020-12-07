@@ -7,17 +7,23 @@
     padding-bottom: 2px;
 }
 .guests {
-    display: flex;
     background-color: #eee;
-    justify-content: space-around;
-    flex-wrap: wrap;
     border-radius: 5px;
     margin-bottom: 5px;
+    padding: 2px;
 
     form {
         margin: 10px;
         border: 1px solid #aaa;
         padding: 10px;
         border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .name {
+            font-weight: bold;
+            padding: 10px;
+        }
     }
 }
