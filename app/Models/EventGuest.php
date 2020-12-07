@@ -9,7 +9,17 @@ class EventGuest extends Pivot
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function dishes(){
         return $this->hasMany(Dish::classs);
+    }
+
+    public function event() {
+        return $this->belongsTo(Event::class);
+    }
+
+    public function guest() {
+        return $this->belongsTo(Guest::class);
     }
 }

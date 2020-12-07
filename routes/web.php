@@ -25,3 +25,8 @@ Route::resource('guests', App\Http\Controllers\GuestController::class);
 Route::resource('items', App\Http\Controllers\ItemController::class);
 Route::resource('dishes', App\Http\Controllers\DishController::class);
 Route::resource('events', App\Http\Controllers\EventController::class);
+
+Route::get('/sendinvite/{event}/{guest}', [App\Http\Controllers\HomeController::class, 'sendInvite'])->name('sendinvite');
+
+Route::get('/guest/{id}', [App\Http\Controllers\InviteController::class, 'guest']);
+

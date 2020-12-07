@@ -32,12 +32,13 @@
         </div>
     @endforeach
     <div class="guests">
+        <h2>Guest List</h2>
         @foreach ($event->guests as $guest)
             <form action="{{route('dishes.store')}}" method="post">
                 @csrf
                 <input type="hidden" name="guest_id" value="{{$guest->id}}">
                 <input type="hidden" name="event_id" value="{{$event->id}}">
-                <div>{{$guest->name}}</div>
+                <div class="name">{{$guest->name}}</div>
                 <div class="form-group">
                     <select name="item_id" class="form-control">
                         @foreach ($items as $item)
@@ -47,6 +48,7 @@
                 </div>
                 <div class="form-group"><input class="form-control" type="text" name="dish" id="dish"></div>
                 <div><button type="submit" class="btn-sm btn-primary">Add</button></div>
+                <div><a href="{{route('sendinvite', [$event->id, $guest->id])}}" class="btn-sm btn-primary">{{$guest->pivot->invite_sent?'Resend':'Send'}} Invite</a></div>
             </form>
         @endforeach
 </div>

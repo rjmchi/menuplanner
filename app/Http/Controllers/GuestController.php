@@ -53,7 +53,8 @@ class GuestController extends Controller
         $g->events()->attach($request->event_id,['uuid'=>Str::uuid()]);
 
         if ($request->send_invite) {
-            \Mail::to($g->email_address)->send(new Invite);            
+            // \Mail::to($g->email_address)->send(new Invite);            
+            return \redirect(route('sendinvite', $request->event_id, $g->id));
         }
         return redirect(route('events.show', $request->event_id));
     }
