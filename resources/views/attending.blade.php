@@ -17,7 +17,7 @@
         <div class="col-sm-3">Dish</div>
         <div class="col-sm-2">&nbsp;</div>
     </div>
-    @foreach ($event->dishes as $dish)
+    @foreach ($event->dishes()->orderBy('item_id')->get() as $dish)
         <div class="row line">
             <div class="col-sm-4"> {{$dish->guest->name}} </div>
             <div class="col-sm-3"> {{$dish->item->name}}</div>
